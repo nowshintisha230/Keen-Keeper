@@ -3,10 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { faChartLine } from "@fortawesome/free-solid-svg-icons";
+import Link from 'next/link';
 const Navbar = () => {
     return (
         <div>
-            <div className="navbar bg-base-100 shadow-sm">
+            <div className="navbar bg-base-100 rounded-xl shadow-sm mt-1">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -15,10 +16,11 @@ const Navbar = () => {
       <ul
         tabIndex="-1"
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a><FontAwesomeIcon icon={faHouse} />Home</a></li>
-        <li>
-          <a><FontAwesomeIcon icon={faClock} />Timeline</a>
-         
+        <li><a><FontAwesomeIcon icon={faHouse} /> 
+        <Link href="/">Home</Link></a></li>
+        <li><a>
+        <FontAwesomeIcon icon={faClock} />Timeline
+         </a>
         </li>
         <li><a><FontAwesomeIcon icon={faChartLine} />Stats</a></li>
       </ul>
@@ -27,9 +29,9 @@ const Navbar = () => {
   </div>
   <div className="navbar-end hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-      <li><a><FontAwesomeIcon icon={faHouse} />Home</a></li>
-      <li><a><FontAwesomeIcon icon={faClock} />Timeline</a>
-      </li>
+      <li><a><FontAwesomeIcon icon={faHouse} /> <Link href="/">Home</Link> </a></li>
+      <li><a><FontAwesomeIcon icon={faClock} />Timeline
+      </a></li>
       <li><a><FontAwesomeIcon icon={faChartLine} />Stats</a></li>
     </ul>
   </div>

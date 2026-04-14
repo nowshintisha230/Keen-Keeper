@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 const Friends = async () => {
@@ -8,9 +9,37 @@ const Friends = async () => {
   const data = await res.json();
 
   return (
+    <div className=''>
+<div className='m-5 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3'>
+  
+  <button className='btn p-4 flex flex-col items-center'>
+    <p className='text-gray-500 text-sm'>Total Friends</p>
+  </button>
+
+  <button className='btn p-4 flex flex-col items-center'>
+    <p className='text-gray-500 text-sm'>On Track</p>
+  </button>
+
+  <button className='btn p-4 flex flex-col items-center'>
+    <p className='text-gray-500 text-sm'>Need Attention</p>
+  </button>
+
+  <button className='btn p-4 flex flex-col items-center'>
+    <p className='text-gray-500 text-sm'>Interactions This Month</p>
+  </button>
+
+</div>
+
     <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+
+     
       {
         data.map((friend) => (
+            <Link href={`/FriendDetails/${friend.id}`} key={friend.id}>
+         
+
+
+
           <div
             key={friend.id}
             className='flex flex-col items-center gap-4 bg-gray-200 rounded-3xl shadow-xl p-6 w-full overflow-hidden'
@@ -30,16 +59,16 @@ const Friends = async () => {
 
          
             <div className='flex flex-wrap justify-center gap-1'>
-              <button className='text-xs px-2 py-1 rounded-full bg-green-200'>
+              <button className='font-bold text-xs px-2 py-1 rounded-full bg-green-200'>
                 {friend.tags[0]}
               </button>
 
-              <button className='text-xs px-2 py-1 rounded-full bg-green-200'>
+              <button className='text-xs font-bold px-2 py-1 rounded-full bg-green-200'>
                 {friend.tags[1]}
               </button>
 
               {friend.tags[2] && (
-                <button className='text-xs px-2 py-1 rounded-full bg-green-200'>
+                <button className='font-bold text-xs px-2 py-1 rounded-full bg-green-200'>
                   {friend.tags[2]}
                 </button>
               )}
@@ -47,7 +76,7 @@ const Friends = async () => {
 
            
             <button
-              className={`text-xs px-3 py-1 rounded-full ${
+              className={`font-bold text-xs px-3 py-1 rounded-full ${
                 friend.status === "almost due"
                   ? "bg-yellow-300"
                   : friend.status === "overdue"
@@ -59,8 +88,10 @@ const Friends = async () => {
             </button>
 
           </div>
+          </Link>
         ))
       }
+    </div>
     </div>
   );
 };
