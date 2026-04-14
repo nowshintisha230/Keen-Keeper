@@ -5,26 +5,38 @@ const Friends = async () => {
   const res = await fetch("http://localhost:3000/friends.json", {
     cache: "no-store"
   });
-
   const data = await res.json();
+
+const totalFriends = data.length;
+
+const onTrack = data.filter(f => f.status === "on-track").length;
+
+const needAttention = data.filter(
+  f => f.status === "almost due" || f.status === "overdue"
+).length;
+
+const interactionThisMonth = data.filter(
+  f => f.days_since_contact <= 30
+).length;
+
 
   return (
     <div className=''>
 <div className='m-5 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3'>
   
-  <button className='btn p-4 flex flex-col items-center'>
+  <button className='btn p-10 flex flex-col items-center'><span className='text-xl font-bold'>{totalFriends}</span>
     <p className='text-gray-500 text-sm'>Total Friends</p>
   </button>
 
-  <button className='btn p-4 flex flex-col items-center'>
+  <button className='btn p-10 flex flex-col items-center'>  <span className='text-xl font-bold'>{onTrack}</span>
     <p className='text-gray-500 text-sm'>On Track</p>
   </button>
 
-  <button className='btn p-4 flex flex-col items-center'>
+  <button className='btn p-10 flex flex-col items-center'>    <span className='text-xl font-bold'>{needAttention}</span>
     <p className='text-gray-500 text-sm'>Need Attention</p>
   </button>
 
-  <button className='btn p-4 flex flex-col items-center'>
+  <button className='btn p-10 flex flex-col items-center'>   <span className='text-xl font-bold'>{interactionThisMonth}</span>
     <p className='text-gray-500 text-sm'>Interactions This Month</p>
   </button>
 
