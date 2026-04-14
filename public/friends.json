@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Arafat Rahman",
+    "picture": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+    "email": "arafat.rahman.bd@gmail.com",
+    "days_since_contact": 18,
+    "status": "overdue",
+    "tags": ["university", "coding buddy"],
+    "bio": "CSE classmate from university. We used to build web projects and solve coding problems together.",
+    "goal": 14,
+    "next_due_date": "2025-07-05"
+  },
+  {
+    "id": 2,
+    "name": "Emily Johnson",
+    "picture": "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
+    "email": "emily.johnson.work@outlook.com",
+    "days_since_contact": 5,
+    "status": "on-track",
+    "tags": ["USA", "language exchange"],
+    "bio": "Met through an English speaking practice group. We help each other improve communication skills.",
+    "goal": 10,
+    "next_due_date": "2025-08-12"
+  },
+  {
+    "id": 3,
+    "name": "Lucas Martin",
+    "picture": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d",
+    "email": "lucas.martin.france@yahoo.com",
+    "days_since_contact": 12,
+    "status": "almost due",
+    "tags": ["France", "travel", "friend"],
+    "bio": "Met while traveling. We explored culture, food, and tech discussions during my visit.",
+    "goal": 12,
+    "next_due_date": "2025-07-28"
+  },
+  {
+    "id": 4,
+    "name": "Nusrat Jahan",
+    "picture": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1",
+    "email": "nusrat.jahan.study@gmail.com",
+    "days_since_contact": 3,
+    "status": "on-track",
+    "tags": ["school friend", "childhood"],
+    "bio": "Childhood best friend. We still share daily life updates and career plans.",
+    "goal": 8,
+    "next_due_date": "2025-08-01"
+  },
+  {
+    "id": 5,
+    "name": "David Miller",
+    "picture": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
+    "email": "david.miller.uk.dev@protonmail.com",
+    "days_since_contact": 22,
+    "status": "overdue",
+    "tags": ["UK", "developer", "freelance"],
+    "bio": "Freelance developer I met on an online platform. We collaborated on React projects.",
+    "goal": 20,
+    "next_due_date": "2025-06-30"
+  },
+  {
+    "id": 6,
+    "name": "Sadia Islam",
+    "picture": "https://images.unsplash.com/photo-1534528741775-53994a69daeb",
+    "email": "sadia.islam.hackathon@gmail.com",
+    "days_since_contact": 7,
+    "status": "on-track",
+    "tags": ["hackathon", "team mate"],
+    "bio": "Met at a university hackathon. We built an AI-based student assistant together.",
+    "goal": 10,
+    "next_due_date": "2025-08-15"
+  },
+  {
+    "id": 7,
+    "name": "Sophia Williams",
+    "picture": "https://images.unsplash.com/photo-1554151228-14d9def656e4",
+    "email": "sophia.williams.canada@outlook.com",
+    "days_since_contact": 10,
+    "status": "almost due",
+    "tags": ["Canada", "study abroad"],
+    "bio": "Connected during scholarship research group. We discuss study abroad opportunities.",
+    "goal": 12,
+    "next_due_date": "2025-07-25"
+  },
+  {
+    "id": 8,
+    "name": "Mehedi Hasan",
+    "picture": "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c",
+    "email": "mehedi.hasan.bd.cricket@gmail.com",
+    "days_since_contact": 16,
+    "status": "overdue",
+    "tags": ["neighbor", "childhood"],
+    "bio": "Childhood neighbor and cricket partner. We grew up playing together every evening.",
+    "goal": 18,
+    "next_due_date": "2025-06-25"
+  },
+  {
+    "id": 9,
+    "name": "Anna Schmidt",
+    "picture": "https://images.unsplash.com/photo-1544723795-3fb6469f5b39",
+    "email": "anna.schmidt.iot.germany@gmail.com",
+    "days_since_contact": 4,
+    "status": "on-track",
+    "tags": ["Germany", "engineering", "tech"],
+    "bio": "Met in an online engineering forum. We discuss embedded systems and IoT projects.",
+    "goal": 9,
+    "next_due_date": "2025-08-18"
+  },
+  {
+    "id": 10,
+    "name": "Carlos Rivera",
+    "picture": "https://images.unsplash.com/photo-1542206395-9feb3edaa68d",
+    "email": "carlos.rivera.music.spain@gmail.com",
+    "days_since_contact": 13,
+    "status": "almost due",
+    "tags": ["Spain", "music", "friend"],
+    "bio": "Met through a music community. We share playlists and talk about cultural events.",
+    "goal": 11,
+    "next_due_date": "2025-07-30"
+  }
+]
