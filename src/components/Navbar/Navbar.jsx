@@ -51,7 +51,7 @@ const Navbar = () => {
         </div>
 
         <a className="text-4xl">
-          <span className="font-bold">Keen</span>Keeper
+          <span className="font-bold">Keen</span><span className='text-green-900'>Keeper</span>
         </a>
       </div>
 
