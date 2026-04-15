@@ -48,10 +48,6 @@ const interactionThisMonth = data.filter(
       {
         data.map((friend) => (
             <Link href={`/FriendDetails/${friend.id}`} key={friend.id}>
-         
-
-
-
           <div
             key={friend.id}
             className='flex flex-col items-center gap-4 bg-gray-200 rounded-3xl shadow-xl p-6 w-full overflow-hidden'
