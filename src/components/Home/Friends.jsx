@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 
 const Friends = async () => {
-  const res = await fetch("/friends.json", {
+  const res = await fetch("https://keen-keeper-puce.vercel.app/friends.json", {
     cache: "no-store"
   });
   const data = await res.json();

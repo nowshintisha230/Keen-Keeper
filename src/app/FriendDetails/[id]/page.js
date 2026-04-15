@@ -5,7 +5,7 @@ import { faAlarmClock, faBoxArchive, faTrashCan, faVideo, faComment, faPhoneFlip
 export default async function Page({ params }) {
   const { id } = await params;
 
-  const res = await fetch("/friends.json");
+  const res = await fetch("https://keen-keeper-puce.vercel.app/friends.json");
   const friends = await res.json();
 
   const friend = friends.find((item) => item.id == id);
