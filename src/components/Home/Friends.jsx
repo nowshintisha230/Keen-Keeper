@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 
 const Friends = async () => {
-  const res = await fetch("http://localhost:3000/friends.json", {
+  const res = await fetch("/friends.json", {
     cache: "no-store"
   });
   const data = await res.json();
@@ -71,16 +71,16 @@ const interactionThisMonth = data.filter(
 
          
             <div className='flex flex-wrap justify-center gap-1'>
-              <button className='font-bold text-xs px-2 py-1 rounded-full bg-green-200'>
+              <button className='font-bold text-xs px-2 py-1 rounded-full bg-blue-200'>
                 {friend.tags[0]}
               </button>
 
-              <button className='text-xs font-bold px-2 py-1 rounded-full bg-green-200'>
+              <button className='text-xs font-bold px-2 py-1 rounded-full bg-blue-200'>
                 {friend.tags[1]}
               </button>
 
               {friend.tags[2] && (
-                <button className='font-bold text-xs px-2 py-1 rounded-full bg-green-200'>
+                <button className='font-bold text-xs px-2 py-1 rounded-full bg-blue-200'>
                   {friend.tags[2]}
                 </button>
               )}
@@ -93,7 +93,7 @@ const interactionThisMonth = data.filter(
                   ? "bg-yellow-300"
                   : friend.status === "overdue"
                   ? "bg-red-600"
-                  : "bg-green-500"
+                  : "bg-green-600"
               }`}
             >
               {friend.status}

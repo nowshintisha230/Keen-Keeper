@@ -5,7 +5,7 @@ import { faAlarmClock, faBoxArchive, faTrashCan, faVideo, faComment, faPhoneFlip
 export default async function Page({ params }) {
   const { id } = await params;
 
-  const res = await fetch("http://localhost:3000/friends.json");
+  const res = await fetch("/friends.json");
   const friends = await res.json();
 
   const friend = friends.find((item) => item.id == id);

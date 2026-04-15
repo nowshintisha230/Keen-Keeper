@@ -11,13 +11,13 @@ const Navbar = () => {
 
   const linkClass = (path) =>
     pathname === path
-      ? "text-green-600 font-bold flex items-center gap-2"
+      ? "bg-green-900 text-white font-bold flex items-center gap-2"
       : "text-black flex items-center gap-2 hover:text-green-500";
 
   return (
     <div className="navbar bg-base-100 rounded-xl shadow-sm mt-1">
       
-      {/* LEFT */}
+   
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
