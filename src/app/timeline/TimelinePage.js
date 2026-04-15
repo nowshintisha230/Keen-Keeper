@@ -16,7 +16,7 @@ export default function TimelinePage() {
   const [timeline, setTimeline] = useState([]);
   const [mounted, setMounted] = useState(false);
 
-  // ✅ FILTER STATES
+ 
   const [nameFilter, setNameFilter] = useState("");
   const [typeFilter, setTypeFilter] = useState("");
 
@@ -81,7 +81,7 @@ export default function TimelinePage() {
     if (type === "video") return faVideo;
   };
 
-  // ✅ FILTERED DATA
+  
   const filteredTimeline = timeline.filter((item) => {
     const matchName = item.name
       .toLowerCase()
@@ -98,7 +98,7 @@ export default function TimelinePage() {
     <div className="p-5 space-y-5">
       <h1 className="text-2xl font-bold">Timeline</h1>
 
-      {/* ✅ FILTER UI */}
+  
       <div className="flex gap-3">
         <input
           type="text"
@@ -120,7 +120,7 @@ export default function TimelinePage() {
         </select>
       </div>
 
-      {/* TIMELINE */}
+     
       {filteredTimeline.length === 0 ? (
         <div className="p-4 border rounded-lg text-gray-500">
           No matching events

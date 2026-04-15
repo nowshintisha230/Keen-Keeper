@@ -7,6 +7,8 @@ const Banner = () => {
             <p className='text-gray-600 '>Your personal shelf of meaningful connections. Browse, tend, and nurture the
 relationships that matter most.</p>
 <button className='btn bg-green-700 font-bold'>+ Add a friend</button>
+
+
         </div>
     );
 };

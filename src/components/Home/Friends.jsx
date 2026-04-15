@@ -1,14 +1,37 @@
+
+"use client"; 
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
-const Friends = async () => {
-  const res = await fetch(
-    "https://keen-keeper-puce.vercel.app/friends.json",
-    {
-      cache: "no-store",
-    }
-  );
+const Friends = () => {
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
 
-  const data = await res.json();
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch("https://keen-keeper-puce.vercel.app/friends.json", {
+        cache: "no-store",
+      });
+
+      const result = await res.json();
+      setData(result);
+      setLoading(false); 
+    };
+
+    fetchData();
+  }, []); 
+  if (loading) {
+    return (
+      <div className="text-center mx-auto mt-20">
+      <span className="loading loading-ball loading-xs"></span>
+<span className="loading loading-ball loading-sm"></span>
+<span className="loading loading-ball loading-md"></span>
+<span className="loading loading-ball loading-lg"></span>
+<span className="loading loading-ball loading-xl"></span>
+      </div>
+    );
+  }
 
   if (!data || data.length === 0) {
     return (
@@ -17,20 +40,16 @@ const Friends = async () => {
   }
 
   const totalFriends = data.length;
-
   const onTrack = data.filter((f) => f.status === "on-track").length;
-
   const needAttention = data.filter(
     (f) => f.status === "almost due" || f.status === "overdue"
   ).length;
-
   const interactionThisMonth = data.filter(
     (f) => f.days_since_contact <= 30
   ).length;
 
   return (
     <div>
-      {/* STATS */}
       <div className="m-5 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3">
         <button className="btn p-10 flex flex-col items-center">
           <span className="text-xl font-bold">{totalFriends}</span>
@@ -53,28 +72,28 @@ const Friends = async () => {
         </button>
       </div>
 
-      {/* FRIEND CARDS */}
+     
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {data.map((friend) => (
           <Link href={`/FriendDetails/${friend.id}`} key={friend.id}>
             <div className="flex flex-col items-center gap-4 bg-gray-200 rounded-3xl shadow-xl p-6 w-full overflow-hidden hover:scale-105 transition">
               
-              {/* IMAGE */}
+          
               <img
                 src={friend.picture}
                 className="rounded-full w-20 h-20 object-cover"
                 alt={friend.name}
               />
 
-              {/* NAME */}
+            
               <h1 className="font-bold text-center">{friend.name}</h1>
 
-              {/* LAST CONTACT */}
+            
               <p className="text-gray-600 text-sm">
                 {friend.days_since_contact}d ago
               </p>
 
-              {/* TAGS (SAFE) */}
+              
               <div className="flex flex-wrap justify-center gap-1">
                 {friend.tags?.map((tag, index) => (
                   <span
@@ -86,7 +105,7 @@ const Friends = async () => {
                 ))}
               </div>
 
-              {/* STATUS */}
+           
               <button
                 className={`font-bold text-xs px-3 py-1 rounded-full ${
                   friend.status === "almost due"
