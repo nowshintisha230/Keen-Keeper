@@ -24,3 +24,5 @@ It helps users manage friends, track interactions (Call, Text, Video), and visua
 1. 👥 Friend Management System with detailed friend profiles  
 2. ⚡ Interaction Timeline for Call, Text, and Video tracking  
 3. 📊 Responsive UI with clean design across all devices  
+
+## 🌐 Live Demo : https://keen-keeper-puce.vercel.app/
