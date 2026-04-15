@@ -110,17 +110,17 @@ toast.success(`${type} with ${friend.name} Added to your Timeline`);
       <div className="space-y-3">
 
         <div className="flex gap-2 sm:gap-2.5">
-          <button className="btn flex-1 py-9 sm:p-20 flex-col font-bold text-center">
+          <button className="btn flex-1 py-9 sm:p-10 flex-col font-bold text-center">
             {friend.days_since_contact}
             <p className="text-gray-400 text-xs">Days Since Contact</p>
           </button>
 
-          <button className="btn flex-1 py-9 sm:p-20 flex-col font-bold text-center">
+          <button className="btn flex-1 py-9 sm:p-10 flex-col font-bold text-center">
             {friend.goal}
             <p className="text-gray-400 text-xs">Goal(Days)</p>
           </button>
 
-          <button className="btn flex-1 py-9 sm:p-20 flex-col font-bold text-center">
+          <button className="btn text-xs lg:text-sm flex-1 py-9 sm:p-10 flex-col font-bold text-center">
             {friend.next_due_date}
             <p className="text-gray-400 text-xs">Next Due</p>
           </button>
