@@ -16,17 +16,10 @@ export default function TimelinePage() {
   const [timeline, setTimeline] = useState([]);
   const [mounted, setMounted] = useState(false);
 
- 
   const [nameFilter, setNameFilter] = useState("");
   const [typeFilter, setTypeFilter] = useState("");
 
   const hasAdded = useRef(false);
-
-  useEffect(() => {
-    const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-    setTimeline(stored);
-    setMounted(true);
-  }, []);
 
   const getFormattedDate = () => {
     return new Date().toLocaleString("en-GB", {
@@ -54,6 +47,21 @@ export default function TimelinePage() {
     setTimeline(updated);
   };
 
+ 
+  useEffect(() => {
+    const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+
+    const updated = stored.map((item) => ({
+      ...item,
+      date: item.date || getFormattedDate(),
+    }));
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+    setTimeline(updated);
+    setMounted(true);
+  }, []);
+
+  
   useEffect(() => {
     if (!mounted) return;
 
@@ -75,10 +83,12 @@ export default function TimelinePage() {
     }
   }, [searchParams, mounted]);
 
+ 
   const getIcon = (type) => {
     if (type === "call") return faPhoneFlip;
     if (type === "text") return faComment;
     if (type === "video") return faVideo;
+    return faComment;
   };
 
   
@@ -98,7 +108,7 @@ export default function TimelinePage() {
     <div className="p-5 space-y-5">
       <h1 className="text-2xl font-bold">Timeline</h1>
 
-  
+     
       <div className="flex gap-3">
         <input
           type="text"
@@ -120,7 +130,7 @@ export default function TimelinePage() {
         </select>
       </div>
 
-     
+    
       {filteredTimeline.length === 0 ? (
         <div className="p-4 border rounded-lg text-gray-500">
           No matching events
@@ -141,7 +151,11 @@ export default function TimelinePage() {
                 <p className="font-semibold capitalize">
                   {item.type} with {item.name}
                 </p>
-                <p className="text-sm text-gray-500">{item.date}</p>
+
+           
+                <p className="text-sm text-gray-500">
+                  {item.date || "No date available"}
+                </p>
               </div>
             </div>
           ))}
