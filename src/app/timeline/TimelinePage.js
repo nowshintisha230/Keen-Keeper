@@ -15,9 +15,13 @@ export default function TimelinePage() {
   const searchParams = useSearchParams();
   const [timeline, setTimeline] = useState([]);
   const [mounted, setMounted] = useState(false);
+
+  // ✅ FILTER STATES
+  const [nameFilter, setNameFilter] = useState("");
+  const [typeFilter, setTypeFilter] = useState("");
+
   const hasAdded = useRef(false);
 
-  // Load from localStorage and set mounted in one effect
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
     setTimeline(stored);
@@ -50,7 +54,6 @@ export default function TimelinePage() {
     setTimeline(updated);
   };
 
-  // Handle query params safely
   useEffect(() => {
     if (!mounted) return;
 
@@ -78,32 +81,67 @@ export default function TimelinePage() {
     if (type === "video") return faVideo;
   };
 
+  // ✅ FILTERED DATA
+  const filteredTimeline = timeline.filter((item) => {
+    const matchName = item.name
+      .toLowerCase()
+      .includes(nameFilter.toLowerCase());
+
+    const matchType = typeFilter ? item.type === typeFilter : true;
+
+    return matchName && matchType;
+  });
+
   if (!mounted) return null;
 
   return (
     <div className="p-5 space-y-5">
       <h1 className="text-2xl font-bold">Timeline</h1>
 
-      {timeline.length === 0 ? (
+      {/* ✅ FILTER UI */}
+      <div className="flex gap-3">
+        <input
+          type="text"
+          placeholder="Filter by friend name..."
+          className="border p-2 rounded w-full"
+          value={nameFilter}
+          onChange={(e) => setNameFilter(e.target.value)}
+        />
+
+        <select
+          className="border p-2 rounded"
+          value={typeFilter}
+          onChange={(e) => setTypeFilter(e.target.value)}
+        >
+          <option value="">All Types</option>
+          <option value="call">Call</option>
+          <option value="text">Text</option>
+          <option value="video">Video</option>
+        </select>
+      </div>
+
+      {/* TIMELINE */}
+      {filteredTimeline.length === 0 ? (
         <div className="p-4 border rounded-lg text-gray-500">
-          No timeline events yet
+          No matching events
         </div>
       ) : (
         <div className="space-y-3">
-          {timeline.map((item) => (
+          {filteredTimeline.map((item) => (
             <div
               key={item.id}
               className="flex gap-3 p-4 bg-gray-100 rounded-xl items-center"
             >
-              <FontAwesomeIcon icon={getIcon(item.type)} className="text-xl" />
+              <FontAwesomeIcon
+                icon={getIcon(item.type)}
+                className="text-xl"
+              />
 
               <div>
                 <p className="font-semibold capitalize">
                   {item.type} with {item.name}
                 </p>
-                <p className="text-sm text-gray-500">
-                  {item.date ? item.date : getFormattedDate()}
-                </p>
+                <p className="text-sm text-gray-500">{item.date}</p>
               </div>
             </div>
           ))}

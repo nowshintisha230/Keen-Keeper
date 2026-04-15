@@ -1,5 +1,5 @@
 "use client";
-
+import { toast } from "sonner"; 
 import { use } from "react";
 import { useRouter } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -31,7 +31,6 @@ export default function Page({ params }) {
  
   const addTimelineEvent = (type) => {
     if (!friend) return;
-
     if (isLogging.current) return;
     isLogging.current = true;
 
@@ -44,7 +43,7 @@ export default function Page({ params }) {
     };
 
     localStorage.setItem("timeline", JSON.stringify([...old, newEvent]));
-
+toast.success(`${type} with ${friend.name} Added to your Timeline`);
     setTimeout(() => {
       isLogging.current = false;
     }, 500);
