@@ -46,7 +46,7 @@ export default function Page({ params }) {
 toast.success(`${type} with ${friend.name} Added to your Timeline`);
     setTimeout(() => {
       isLogging.current = false;
-    }, 500);
+    }, 100);
   };
 
   if (!friend) {

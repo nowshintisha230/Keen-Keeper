@@ -18,7 +18,17 @@ export default function RootLayout({ children }) {
     <html lang="en" data-theme="light" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased lg:w-9/12 mx-auto`}>
       <body className="min-h-full flex flex-col">
         <Navbar />
-        <Toaster position="top-right" richColors />
+        
+        <Toaster
+          position="top-center"
+          richColors
+          closeButton
+          expand={false}
+          toastOptions={{
+            duration: 4000, 
+            className: "rounded-xl shadow-md",
+          }}
+        />
         {children}
         <Footer />
       </body>
