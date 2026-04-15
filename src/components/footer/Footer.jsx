@@ -5,7 +5,7 @@ import { faInstagram, faFacebookF, faXTwitter } from "@fortawesome/free-brands-s
 const Footer = () => {
     return (
         <div className=''>
-            <footer className="bg-green-900 w-full p-10 text-center rounded-3xl my-10 ">
+            <footer className="bg-green-900 w-full p-10 text-center rounded-3xl my-10 mb-0">
 
   <h1 className="text-white text-5xl font-bold mb-4">KeenKeeper</h1>
   <p className="text-gray-300 text-sm mb-6">Your personal shelf of meaningful connections. Browse, tend, and nurture the relationships that matter most.</p>
